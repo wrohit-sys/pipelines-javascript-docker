@@ -14,12 +14,12 @@ steps:
   displayName: Login to ACR
   inputs:
     command: login
-    containerRegistry: myregtest
+    containerRegistry: acr-connection
 - task: Docker@2
   displayName: Build and Push
   inputs:
     command: buildAndPush
-    containerRegistry: myregtest
+    containerRegistry: acr-connection
     repository: $(imageName)
     tags: |
       tag1
