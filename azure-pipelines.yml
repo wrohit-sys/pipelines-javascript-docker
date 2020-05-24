@@ -7,10 +7,15 @@ pool:
 variables:
   imageName: 'pipelines-javascript-docker'
 
+
+
 steps:
 - task: Docker@2
-  displayName: Build an image
+  displayName: Build and Push
   inputs:
+    command: buildAndPush
+    containerRegistry: myregtest
     repository: $(imageName)
-    command: build
-    Dockerfile: app/Dockerfile
+    tags: |
+      tag1
+
